@@ -45,10 +45,9 @@ public class Cola {
         
     }
     
-    public Reclamo remove(){
+    public Reclamo eliminar(){
     
-        
-        if(fin==-1){
+        if(fin == -1){
             
             System.out.println("No hay elementos en la cola");
             return null;
@@ -66,6 +65,7 @@ public class Cola {
         }
         System.out.println("");
     }
+
 
    }
 
