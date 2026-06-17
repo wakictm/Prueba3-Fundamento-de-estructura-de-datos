@@ -9,17 +9,12 @@ package com.mycompany.grupo_2;
 
 public class Cola {
     
+
     private Reclamo[] reclamos;
     private int fin, inicio;
-
-
-    class cola{
-
-    Reclamo[] reclamos;
-    int fin, inicio;
  
     
-    public cola(){
+    public Cola(){
     
         reclamos = new Reclamo[0];
         fin = -1;
@@ -57,11 +52,11 @@ public class Cola {
 
 }
     
-    public void mostrarElementos(){
+    public void mostrarReclamos(){
     
         for( int i = inicio; i <= fin; i++ ){
         
-            System.out.print(reclamos[i]);
+            System.out.println((i+1)+". "+reclamos[i]);
         }
         System.out.println("");
     }
@@ -69,8 +64,7 @@ public class Cola {
 
    }
 
-}
-    
-    
-    
 
+    
+    
+    

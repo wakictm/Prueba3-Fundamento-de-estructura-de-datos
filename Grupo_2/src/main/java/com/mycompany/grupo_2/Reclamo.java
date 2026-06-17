@@ -20,7 +20,7 @@ public class Reclamo {
     private int nivelPrioridad;
     private String descripcion;
 
-    public Reclamo(int rut, String nombreCiudadano, int fechaIngreso, String nombreReclamo, int fechaLimite, String tipoReclamo, boolean estadoReclamo, int nivelPrioridad, String descripcion) {
+    public Reclamo(int rut, String nombreCiudadano, int fechaIngreso, String nombreReclamo, int fechaLimite, String tipoReclamo, int nivelPrioridad, String descripcion) {
         this.rut = rut;
         this.nombreCiudadano = nombreCiudadano;
         this.fechaIngreso = fechaIngreso;
@@ -106,7 +106,7 @@ public class Reclamo {
 
     @Override
     public String toString() {
-        return "Reclamo{" + "Rut: " + rut +"|"
+        return  "Rut: " + rut +"|"
                 + "Nombre del Ciudadano: " + nombreCiudadano +"|"
                 + "Fecha de Ingreso: " + fechaIngreso +"|"+
                 "Nombre del Reclamo: " + nombreReclamo +"|"+
@@ -114,7 +114,7 @@ public class Reclamo {
                 "Tipo Reclamo: " + tipoReclamo +"|"+
                 "Estado Reclamo: " + estadoReclamo+"|"
                 + "Nivel de Prioridad: " + nivelPrioridad +"|"+
-                "Descripcion: " + descripcion + '}';
+                "Descripcion: " + descripcion;
     }
     
 
