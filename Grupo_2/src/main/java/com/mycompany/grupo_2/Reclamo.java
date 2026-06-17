@@ -10,4 +10,14 @@ package com.mycompany.grupo_2;
  */
 public class Reclamo {
     
+    private int id;
+    private int fecha;
+
+    public Reclamo(int id, int fecha) {
+        this.id = id;
+        this.fecha = fecha;
+    }
+    
+    
+    
 }
