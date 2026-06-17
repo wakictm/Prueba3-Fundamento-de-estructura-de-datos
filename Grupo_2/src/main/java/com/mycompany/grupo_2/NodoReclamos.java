@@ -13,11 +13,13 @@ public class NodoReclamos {
     private Reclamo reclamo;
     private NodoReclamos izquierdo;
     private NodoReclamos derecho;
+    private int alturanodo;
 
     public NodoReclamos(Reclamo reclamo) {
         this.reclamo = reclamo;
         this.izquierdo = null;
         this.derecho = null;
+        this.alturanodo = 1;
     }
 
     public Reclamo getReclamo() {
@@ -40,5 +42,14 @@ public class NodoReclamos {
         this.derecho = derecho;
     
     }
+
+    public int getAlturanodo() {
+        return alturanodo;
+    }
+
+    public void setAlturanodo(int alturanodo) {
+        this.alturanodo = alturanodo;
+    }
+    
 }
 
