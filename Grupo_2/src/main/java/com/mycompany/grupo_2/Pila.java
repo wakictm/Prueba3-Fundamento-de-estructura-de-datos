@@ -10,4 +10,6 @@ package com.mycompany.grupo_2;
  */
 public class Pila {
     
+    private Reclamo[] reclamos; 
+
 }
