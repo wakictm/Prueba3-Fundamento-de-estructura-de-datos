@@ -23,6 +23,8 @@ public class Grupo_2 {
         
         Scanner sc = new Scanner(System.in);
         
+        System.setOut(new java.io.PrintStream(System.out, true, java.nio.charset.StandardCharsets.UTF_8));
+        
         do{
             
             mostrarMenu();
