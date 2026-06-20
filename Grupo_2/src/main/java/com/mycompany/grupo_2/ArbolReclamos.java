@@ -72,6 +72,28 @@ public class ArbolReclamos {
         }else{
             return nodo;
         }
+        
+        actualizarAltura(nodo);
+        
+        int balance = balance(nodo);
+        if (balance > 1 && nuevoReclamo.getRut() < nodo.getIzquierdo().getReclamo().getRut()) {
+            return rotarDerecha(nodo);
+        }
+
+        if (balance < -1 && nuevoReclamo.getRut() > nodo.getDerecho().getReclamo().getRut()) {
+            return rotarIzquierdo(nodo);
+        }
+
+        if (balance > 1 && nuevoReclamo.getRut() > nodo.getIzquierdo().getReclamo().getRut()) {
+            nodo.setIzquierdo(rotarIzquierdo(nodo.getIzquierdo()));
+            return rotarDerecha(nodo);
+        }
+
+        if (balance < -1 && nuevoReclamo.getRut() < nodo.getDerecho().getReclamo().getRut()) {
+            nodo.setDerecho(rotarDerecha(nodo.getDerecho()));
+            return rotarIzquierdo(nodo);
+        }
+
         return nodo;
     }
 }
