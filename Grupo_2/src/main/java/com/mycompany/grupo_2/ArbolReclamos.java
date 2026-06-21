@@ -4,6 +4,8 @@
  */
 package com.mycompany.grupo_2;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author guill
@@ -96,4 +98,52 @@ public class ArbolReclamos {
 
         return nodo;
     }
+    
+    private boolean compararFechas(String fecha1, String fecha2) {
+        
+        String aux1 = "";
+        String aux2 = "";
+        ArrayList<Integer> fechas = new ArrayList<Integer>();
+        
+        for(int i = 0; i < fecha1.length(); i++){
+           
+            if(fecha1.charAt(i)!= '/'){
+                aux1 += fecha1.charAt(i);
+                aux2 += fecha2.charAt(i);
+                //System.out.println(fecha1.charAt(i));
+                if(fecha1.length() == (i+1)){
+                    
+                    fechas.add(Integer.valueOf(aux1));
+                    fechas.add(Integer.valueOf(aux2));
+                    
+                }
+            }
+            
+            else{
+                fechas.add(Integer.valueOf(aux1));
+                fechas.add(Integer.valueOf(aux2));
+                aux1 = "";
+                aux2 = "";
+                
+            }
+            
+        
+        }
+        
+        for(int i = fechas.size()-1; i >= 0; i-=2){
+        
+            if(fechas.get(i) > fechas.get(i-1)){
+            
+                System.out.println(fechas.get(i)+" - "+fechas.get(i-1));
+                return true;
+            }
+            
+        }
+        
+        return false;
+        
+        
+    }
+    
+    
 }
