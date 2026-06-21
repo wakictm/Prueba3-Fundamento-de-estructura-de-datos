@@ -106,7 +106,7 @@ public class Grupo_2 {
                                 System.out.println("Ingrese el nueva tipo reclamo");
                                 String tipoReclamoNuevo = sc.next();
                                 
-                                cola.getReclamos()[indice].setFechaLimite(tipoReclamoNuevo);
+                                cola.getReclamos()[indice].setTipoReclamo(tipoReclamoNuevo);
                                 
                                 break;
                                 
@@ -212,4 +212,3 @@ public class Grupo_2 {
         
    }
     
-}
