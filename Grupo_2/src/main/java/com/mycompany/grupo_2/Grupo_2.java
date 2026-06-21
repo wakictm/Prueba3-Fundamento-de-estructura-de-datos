@@ -16,7 +16,7 @@ public class Grupo_2 {
         
         Cola cola = new Cola();
         
-        cola.agregar(new Reclamo(1,"Juan", "12/06/2026", "nombre problema", "25/06/2026", "tipo de problema", 3, "descripcion"));
+        cola.agregar(new Reclamo(1,"Juan Fuentes", "12/06/2026", "nombre problema", "25/06/2026", "tipo de problema", 3, "descripcion"));
         cola.agregar(new Reclamo(2,"Guille", "18/06/2026", "nombre problema", "30/06/2026", "LAS NOTAS", 3, "descripcion"));
         
         Scanner sc = new Scanner(System.in);
@@ -66,6 +66,8 @@ public class Grupo_2 {
                         break;
                     
                     case 3:
+                        if(cola.tamaño()!=0){
+                            
                         menuModificarReclamo();
                         System.out.println("Ingrese la opcion a modificar");
                         int opc2 = 0;
@@ -137,7 +139,13 @@ public class Grupo_2 {
                         }
                                 
                                 
-                        }while(opc2 < 1 && opc2 > 5);
+                        }while(opc2 < 1 && opc2 > 5);}
+                        
+                        else{
+                            
+                            System.out.println("No hay ningún reclamo registrado");
+                        
+                        }
                         
                         break;
                         
@@ -178,7 +186,7 @@ public class Grupo_2 {
     }
     
     public static int buscarRut(Cola cola, Scanner sc){
-        if(cola.tamaño() != 0){
+        
         while(true){
             
             System.out.println("Ingrese el rut del reclamo a buscar");
@@ -200,12 +208,7 @@ public class Grupo_2 {
         }
      
     }
-        else{
         
-            System.out.println("No hay reclamos registrados");
-            return -1;
-        
-        }
         
    }
     

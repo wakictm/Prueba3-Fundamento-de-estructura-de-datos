@@ -105,10 +105,5 @@ public class Reclamo {
                 + "Nivel de Prioridad: " + nivelPrioridad +"|"+
                 "Descripcion: " + descripcion;
     }
-    
-
-   
-    
-    
-    
+     
 }
