@@ -60,17 +60,50 @@ public class Cola {
 }
     
     public void mostrarReclamos(){
-    
+     if(tamaño()!=0){
         for( int i = inicio; i <= fin; i++ ){
         
             System.out.println((i+1)+". "+reclamos[i]);
         }
         System.out.println("");
     }
+     else{
+     
+         System.out.println("No hay registros para mostrar");
+     
+     }
+    
+    
+    }
     
     public int tamaño(){
     
         return (fin+1);
+    
+    }
+    
+    public void eliminar(int indice){
+    
+        if(tamaño() != 0){
+        
+            for(int i = indice; i < tamaño()-1; i++){
+            
+                reclamos[i] = reclamos[i+1];
+            
+            }
+            fin--;
+            System.out.println("Se elimino el reclamo correctamente");
+            return;
+            
+        }
+        
+        else{
+        
+            System.out.println("La cola de registro esta vacia");
+        
+        }
+        
+    
     
     }
 

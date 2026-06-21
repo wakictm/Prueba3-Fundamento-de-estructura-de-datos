@@ -150,6 +150,9 @@ public class Grupo_2 {
                         break;
                         
                     case 4:
+                        int indice = buscarRut(cola, sc);
+                        
+                        cola.eliminar(indice);
                         
                         break;
                         
