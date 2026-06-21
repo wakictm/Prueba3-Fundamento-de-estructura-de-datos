@@ -12,6 +12,13 @@ public class Cola {
 
     private Reclamo[] reclamos;
     private int fin, inicio;
+    
+
+    public Reclamo[] getReclamos() {
+        return reclamos;
+    }
+    
+
  
     
     public Cola(){
@@ -60,9 +67,15 @@ public class Cola {
         }
         System.out.println("");
     }
+    
+    public int tamaño(){
+    
+        return (fin+1);
+    
+    }
 
 
-   }
+}
 
 
     

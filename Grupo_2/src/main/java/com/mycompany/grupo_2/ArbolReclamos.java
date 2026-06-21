@@ -143,4 +143,33 @@ public class ArbolReclamos {
     }
     
     
+    public void mostrarInOrden() {
+        
+        if(raiz == null){
+            
+            System.out.println("No existen categorias");
+        }
+        
+        else{
+        
+            inOrden(raiz);
+        }
+        
+        
+    }
+    
+    private void inOrden(NodoReclamos nodo) {
+        // TODO: recorrido recursivo
+        
+        if(nodo != null){
+        
+            inOrden(nodo.getIzquierdo());
+            System.out.println(nodo);
+            inOrden(nodo.getDerecho());
+        
+        }
+        
+    }
+    
+    
 }

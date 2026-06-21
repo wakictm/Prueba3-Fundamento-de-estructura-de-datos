@@ -68,17 +68,6 @@ public class Reclamo {
         return descripcion;
     }
 
-    public void setRut(int rut) {
-        this.rut = rut;
-    }
-
-    public void setNombreCiudadano(String nombreCiudadano) {
-        this.nombreCiudadano = nombreCiudadano;
-    }
-
-    public void setFechaIngreso(String fechaIngreso) {
-        this.fechaIngreso = fechaIngreso;
-    }
 
     public void setNombreReclamo(String nombreReclamo) {
         this.nombreReclamo = nombreReclamo;

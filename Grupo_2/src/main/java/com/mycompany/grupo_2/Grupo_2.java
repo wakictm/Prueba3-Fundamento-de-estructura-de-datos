@@ -41,13 +41,13 @@ public class Grupo_2 {
                         System.out.print("Ingresa el nombre del ciudadano: ");
                         String nombre = sc.next();
                         
-                        System.out.print("Ingresar fecha ingreso (DD/MM//AAA): ");
+                        System.out.print("Ingresar fecha ingreso (DD/MM//AAAA): ");
                         String fechaIngreso = sc.next();
                         
                         sc.nextLine();
                         System.out.print("Nombre del reclamo: ");
                         String nombreReclamo = sc.nextLine();
-                        System.out.print("Ingrese la fecha limite (DD/MM//AAA): ");
+                        System.out.print("Ingrese la fecha limite (DD/MM//AAAA): ");
                         String fechaLimite = sc.next();
                         sc.nextLine();
                         System.out.print("Ingrese el tipo de reclamo: ");
@@ -66,6 +66,78 @@ public class Grupo_2 {
                         break;
                     
                     case 3:
+                        menuModificarReclamo();
+                        System.out.println("Ingrese la opcion a modificar");
+                        int opc2 = 0;
+                        do{
+                        
+                        opc2 = sc.nextInt();
+                            
+                        switch(opc2){
+                            
+                            case 1:
+                                
+                                int indice = buscarRut(cola, sc);
+                                
+                                System.out.println("Ingrese el nuevo nombre del reclamo");
+                                String nombreReclamoNuevo = sc.next();
+                                
+                                cola.getReclamos()[indice].setNombreReclamo(nombreReclamoNuevo);
+                                
+                                break;
+
+                            case 2:
+                                
+                                indice = buscarRut(cola, sc);
+                                
+                                System.out.println("Ingrese la nueva fecha límite (DD/MM//AAAA)");
+                                String fechaLimiteNuevo = sc.next();
+                                
+                                cola.getReclamos()[indice].setFechaLimite(fechaLimiteNuevo);
+                                
+                                
+                                break;
+                            case 3:
+                                
+                                indice = buscarRut(cola, sc);
+                                
+                                System.out.println("Ingrese el nueva tipo reclamo");
+                                String tipoReclamoNuevo = sc.next();
+                                
+                                cola.getReclamos()[indice].setFechaLimite(tipoReclamoNuevo);
+                                
+                                break;
+                                
+                            case 4:
+                                
+                                indice = buscarRut(cola, sc);
+                                
+                                System.out.println("Ingrese el nuevo nivel prioridad");
+                                int nivelPrioridadNuevo = sc.nextInt();
+                                
+                                cola.getReclamos()[indice].setNivelPrioridad(nivelPrioridadNuevo);
+                                
+                                break;
+                                
+                            case 5:
+                                
+                                indice = buscarRut(cola, sc);
+                                
+                                System.out.println("Ingrese la nueva descripcion");
+                                String descripcionNuevo = sc.next();
+                                
+                                cola.getReclamos()[indice].setDescripcion(descripcionNuevo);
+                                
+                                break;
+                            
+                            default:
+                                
+                                System.out.println("Opcion invalida ingrese otro");
+                        
+                        }
+                                
+                                
+                        }while(opc2 < 1 && opc2 > 5);
                         
                         break;
                         
@@ -90,7 +162,51 @@ public class Grupo_2 {
 
     public static void mostrarMenu() {
         
-        System.out.println("1. Gestionar reclamos\n2. Agregar reclamos\n3. Modificar información de un reclamo existente\n4. Eliminar reclamos\n5. Consultar reclamos registrados");
+        System.out.println("1. Gestionar reclamos\n2. Agregar reclamos\n3. "
+                + "Modificar información de un reclamo existente\n4. Eliminar "
+                + "reclamos\n5. Consultar reclamos registrados");
         
     }
+    
+    public static void menuModificarReclamo(){
+    
+        System.out.println("1. Modificar el nombre del reclamo\n2. Modificar "
+                + "fecha limite\n3. Modificar tipo de reclamo\n4. Modificar "
+                + "nivel de prioridad\n5. Modificar descripcion del reclamo\n");
+    
+    
+    }
+    
+    public static int buscarRut(Cola cola, Scanner sc){
+        if(cola.tamaño() != 0){
+        while(true){
+            
+            System.out.println("Ingrese el rut del reclamo a buscar");
+            int rutBuscar = sc.nextInt();
+        
+            for(int i = 0; i < cola.tamaño(); i++){
+
+                if(rutBuscar == cola.getReclamos()[i].getRut()){
+
+
+                    System.out.println(cola.getReclamos()[i]);
+                    return i;
+                }
+
+            }
+            
+            System.out.println("No se encontro el reclamo intente con otro rut");
+      
+        }
+     
+    }
+        else{
+        
+            System.out.println("No hay reclamos registrados");
+            return -1;
+        
+        }
+        
+   }
+    
 }
