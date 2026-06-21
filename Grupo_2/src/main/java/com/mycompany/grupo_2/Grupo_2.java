@@ -16,8 +16,8 @@ public class Grupo_2 {
         
         Cola cola = new Cola();
         
-        cola.agregar(new Reclamo(1,"Juan", 10, "nombre problema", 15, "tipo de problema", 3, "descripcion"));
-        cola.agregar(new Reclamo(2,"Guille", 10, "nombre problema", 15, "LAS NOTAS", 3, "descripcion"));
+        cola.agregar(new Reclamo(1,"Juan", "12/06/2026", "nombre problema", "25/06/2026", "tipo de problema", 3, "descripcion"));
+        cola.agregar(new Reclamo(2,"Guille", "18/06/2026", "nombre problema", "30/06/2026", "LAS NOTAS", 3, "descripcion"));
         
         Scanner sc = new Scanner(System.in);
         
@@ -41,14 +41,14 @@ public class Grupo_2 {
                         System.out.print("Ingresa el nombre del ciudadano: ");
                         String nombre = sc.next();
                         
-                        System.out.print("Ingresar fecha ingreso: ");
-                        int fechaIngreso = sc.nextInt();
+                        System.out.print("Ingresar fecha ingreso (DD/MM//AAA): ");
+                        String fechaIngreso = sc.next();
                         
                         sc.nextLine();
                         System.out.print("Nombre del reclamo: ");
                         String nombreReclamo = sc.nextLine();
-                        System.out.print("Ingrese la fecha limite: ");
-                        int fechaLimite = sc.nextInt();
+                        System.out.print("Ingrese la fecha limite (DD/MM//AAA): ");
+                        String fechaLimite = sc.next();
                         sc.nextLine();
                         System.out.print("Ingrese el tipo de reclamo: ");
                         String tipoReclamo = sc.nextLine();

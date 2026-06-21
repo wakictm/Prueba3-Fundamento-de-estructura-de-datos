@@ -12,15 +12,15 @@ public class Reclamo {
     
     private int rut;
     private String nombreCiudadano;
-    private int fechaIngreso;
+    private String fechaIngreso;
     private String nombreReclamo;
-    private int fechaLimite;
+    private String fechaLimite;
     private String tipoReclamo;
     private boolean estadoReclamo;
     private int nivelPrioridad;
     private String descripcion;
 
-    public Reclamo(int rut, String nombreCiudadano, int fechaIngreso, String nombreReclamo, int fechaLimite, String tipoReclamo, int nivelPrioridad, String descripcion) {
+    public Reclamo(int rut, String nombreCiudadano, String fechaIngreso, String nombreReclamo, String fechaLimite, String tipoReclamo, int nivelPrioridad, String descripcion) {
         this.rut = rut;
         this.nombreCiudadano = nombreCiudadano;
         this.fechaIngreso = fechaIngreso;
@@ -40,7 +40,7 @@ public class Reclamo {
         return nombreCiudadano;
     }
 
-    public int getFechaIngreso() {
+    public String getFechaIngreso() {
         return fechaIngreso;
     }
 
@@ -48,7 +48,7 @@ public class Reclamo {
         return nombreReclamo;
     }
 
-    public int getFechaLimite() {
+    public String getFechaLimite() {
         return fechaLimite;
     }
 
@@ -76,7 +76,7 @@ public class Reclamo {
         this.nombreCiudadano = nombreCiudadano;
     }
 
-    public void setFechaIngreso(int fechaIngreso) {
+    public void setFechaIngreso(String fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
     }
 
@@ -84,7 +84,7 @@ public class Reclamo {
         this.nombreReclamo = nombreReclamo;
     }
 
-    public void setFechaLimite(int fechaLimite) {
+    public void setFechaLimite(String fechaLimite) {
         this.fechaLimite = fechaLimite;
     }
 

@@ -126,23 +126,20 @@ public class ArbolReclamos {
                 aux2 = "";
                 
             }
-            
-        
+                    
         }
         
         for(int i = fechas.size()-1; i >= 0; i-=2){
         
             if(fechas.get(i) > fechas.get(i-1)){
             
-                System.out.println(fechas.get(i)+" - "+fechas.get(i-1));
+                //System.out.println(fechas.get(i)+" - "+fechas.get(i-1));
                 return true;
             }
             
         }
-        
         return false;
-        
-        
+             
     }
     
     
