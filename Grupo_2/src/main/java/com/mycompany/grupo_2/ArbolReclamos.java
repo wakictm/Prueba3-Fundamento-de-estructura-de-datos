@@ -67,31 +67,33 @@ public class ArbolReclamos {
         if(nodo==null){
             return new NodoReclamos(nuevoReclamo);
         }
-        if(nuevoReclamo.getRut()<nodo.getReclamo().getRut()){
-            nodo.setIzquierdo(insertarRec(nodo.getIzquierdo(),nuevoReclamo));
-        }else if(nuevoReclamo.getRut()>nodo.getReclamo().getRut()){
-            nodo.setDerecho(insertarRec(nodo.getDerecho(),nuevoReclamo));
+        
+        if(nuevoReclamo.getNivelPrioridad() < nodo.getReclamo().getNivelPrioridad()){
+            nodo.setIzquierdo(insertarRec(nodo.getIzquierdo(), nuevoReclamo));
+        }else if(nuevoReclamo.getNivelPrioridad() > nodo.getReclamo().getNivelPrioridad()){
+            nodo.setDerecho(insertarRec(nodo.getDerecho(), nuevoReclamo));
         }else{
-            return nodo;
+            nodo.setDerecho(insertarRec(nodo.getDerecho(), nuevoReclamo));
         }
         
         actualizarAltura(nodo);
         
         int balance = balance(nodo);
-        if (balance > 1 && nuevoReclamo.getRut() < nodo.getIzquierdo().getReclamo().getRut()) {
+        
+        if (balance > 1 && nuevoReclamo.getNivelPrioridad() < nodo.getIzquierdo().getReclamo().getNivelPrioridad()) {
             return rotarDerecha(nodo);
         }
 
-        if (balance < -1 && nuevoReclamo.getRut() > nodo.getDerecho().getReclamo().getRut()) {
+        if (balance < -1 && nuevoReclamo.getNivelPrioridad() > nodo.getDerecho().getReclamo().getNivelPrioridad()) {
             return rotarIzquierdo(nodo);
         }
 
-        if (balance > 1 && nuevoReclamo.getRut() > nodo.getIzquierdo().getReclamo().getRut()) {
+        if (balance > 1 && nuevoReclamo.getNivelPrioridad() > nodo.getIzquierdo().getReclamo().getNivelPrioridad()) {
             nodo.setIzquierdo(rotarIzquierdo(nodo.getIzquierdo()));
             return rotarDerecha(nodo);
         }
 
-        if (balance < -1 && nuevoReclamo.getRut() < nodo.getDerecho().getReclamo().getRut()) {
+        if (balance < -1 && nuevoReclamo.getNivelPrioridad() < nodo.getDerecho().getReclamo().getNivelPrioridad()) {
             nodo.setDerecho(rotarDerecha(nodo.getDerecho()));
             return rotarIzquierdo(nodo);
         }
@@ -142,34 +144,21 @@ public class ArbolReclamos {
              
     }
     
-    
     public void mostrarInOrden() {
-        
         if(raiz == null){
-            
-            System.out.println("No existen categorias");
-        }
-        
-        else{
-        
+            System.out.println("No existen reclamos en el árbol.");
+        } else {
             inOrden(raiz);
         }
+    }     
         
-        
-    }
-    
     private void inOrden(NodoReclamos nodo) {
         // TODO: recorrido recursivo
-        
         if(nodo != null){
-        
             inOrden(nodo.getIzquierdo());
-            System.out.println(nodo);
+            System.out.println(nodo.getReclamo()); 
             inOrden(nodo.getDerecho());
-        
         }
-        
     }
-    
     
 }
