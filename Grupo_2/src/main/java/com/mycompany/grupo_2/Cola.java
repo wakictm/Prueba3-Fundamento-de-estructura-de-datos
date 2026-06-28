@@ -23,10 +23,32 @@ public class Cola {
     
     public Cola(){
     
-        reclamos = new Reclamo[0];
-        fin = -1;
-        inicio = 0;
+        this.reclamos = new Reclamo[0];
+        this.fin = -1;
+        this.inicio = 0;
     }
+    
+    public Cola(Cola cola){
+    
+        if (cola.getReclamos() != null) {
+        this.reclamos = cola.getReclamos().clone(); 
+    }
+    
+
+        this.fin = cola.getFin();
+        this.inicio = cola.getInicio();
+    
+    }
+
+    public int getFin() {
+        return fin;
+    }
+
+    public int getInicio() {
+        return inicio;
+    }
+
+    
     
     public void agregar(Reclamo reclamo){
     

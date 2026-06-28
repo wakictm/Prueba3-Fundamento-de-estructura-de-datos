@@ -16,8 +16,11 @@ public class Grupo_2 {
         
         Cola cola = new Cola();
         
+        AlgoritmosOrdenamientos AO = new AlgoritmosOrdenamientos();
+        
+        
         cola.agregar(new Reclamo(1,"Juan Fuentes", "12/06/2026", "nombre problema", "25/06/2026", "tipo de problema", 3, "descripcion"));
-        cola.agregar(new Reclamo(2,"Guille Donoso", "18/06/2026", "nombre problema", "30/06/2026", "LAS NOTAS", 3, "descripcion"));
+        cola.agregar(new Reclamo(2,"Guille Donoso", "18/06/2026", "nombre problema", "30/06/2026", "LAS NOTAS", 1, "descripcion"));
         
         Scanner sc = new Scanner(System.in);
         
@@ -180,7 +183,30 @@ public class Grupo_2 {
                                     break;
                                     
                                 case 3:
+                                    int opcAO = 0;
+                                    do{
+                                        System.out.println("1. Ordenar por Bubblesort"
+                                                + "\n2. Ordenar por QUicksort");
+                                        Cola colaordenada = new Cola(cola);
+                                        opcAO = sc.nextInt();
+                                        switch(opcAO){
+                                          
+                                            case 1:
+                                               
+                                                AO.Bubblesort(colaordenada);
+                                                colaordenada.mostrarReclamos();
+                                                break;
+                                            case 2:
+                                               
+                                                AO.QuickSort(colaordenada);
+                                                colaordenada.mostrarReclamos();
+                                                break;
+                                        
+                                        
+                                        }
                                     
+                                    
+                                    }while(opcAO < 1 || opcAO > 2);
                                     
                                     break;
                                 
