@@ -95,15 +95,32 @@ public class Reclamo {
 
     @Override
     public String toString() {
+        
+        if(estadoReclamo == false){
+        
         return  "Rut: " + rut +"|"
                 + "Nombre del Ciudadano: " + nombreCiudadano +"|"
                 + "Fecha de Ingreso: " + fechaIngreso +"|"+
                 "Nombre del Reclamo: " + nombreReclamo +"|"+
                 "Fecha Limite: " + fechaLimite +"|"+
                 "Tipo Reclamo: " + tipoReclamo +"|"+
-                "Estado Reclamo: " + estadoReclamo+"|"
+                "Estado Reclamo: " + "Pendiente"+"|"
                 + "Nivel de Prioridad: " + nivelPrioridad +"|"+
                 "Descripcion: " + descripcion;
+        }
+        else{
+        
+                return  "Rut: " + rut +"|"
+                + "Nombre del Ciudadano: " + nombreCiudadano +"|"
+                + "Fecha de Ingreso: " + fechaIngreso +"|"+
+                "Nombre del Reclamo: " + nombreReclamo +"|"+
+                "Fecha Limite: " + fechaLimite +"|"+
+                "Tipo Reclamo: " + tipoReclamo +"|"+
+                "Estado Reclamo: " + "Resuelto"+"|"
+                + "Nivel de Prioridad: " + nivelPrioridad +"|"+
+                "Descripcion: " + descripcion;
+        
+        }
     }
      
 }
