@@ -29,7 +29,7 @@ public class NodoReclamos {
     public NodoReclamos getIzquierdo() {
         return izquierdo;
     }
-
+    //Nuevo hijo izquierdo
     public void setIzquierdo(NodoReclamos izquierdo) {
         this.izquierdo = izquierdo;
     }
@@ -37,16 +37,16 @@ public class NodoReclamos {
     public NodoReclamos getDerecho() {
         return derecho;
     }
-
+    //Nuevo hijo derecho
     public void setDerecho(NodoReclamos derecho) {
         this.derecho = derecho;
     
     }
-
+    //Obteniene la altura
     public int getAlturanodo() {
         return alturanodo;
     }
-
+    //Actualiza la altura
     public void setAlturanodo(int alturanodo) {
         this.alturanodo = alturanodo;
     }

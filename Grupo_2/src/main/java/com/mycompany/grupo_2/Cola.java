@@ -5,36 +5,39 @@
 package com.mycompany.grupo_2;
 
 
-//Cola dinamica vamoooooooooooooooooo
+//Cola dinamica 
 
 public class Cola {
     
-
+    //Arreglo que almacena los reclamos
     private Reclamo[] reclamos;
+    //fin ultima posicion y inicio primera posicion 
     private int fin, inicio;
     
-
+    //Retornar el arreglo
     public Reclamo[] getReclamos() {
         return reclamos;
     }
     
 
  
-    
+    //Contructor
     public Cola(){
-    
+        //Arreglo vacio
         reclamos = new Reclamo[0];
+        //No existen elementos 
         fin = -1;
+        //Inicio desde el 0
         inicio = 0;
     }
-    
+    //Agregar al final de la cola
     public void agregar(Reclamo reclamo){
     
-       
+        //Guardar arreglo
             Reclamo[] temp = reclamos;
-            
+            //Nuevo arreglo
             reclamos = new Reclamo[reclamos.length+1];
-            
+            //Copiar elementos anteriores 
             for( int i = 0; i < temp.length; i++){
             
                 reclamos[i] = temp[i];
@@ -46,19 +49,19 @@ public class Cola {
         reclamos[++fin] = reclamo;
         
     }
-    
+    //Elimar desde la primera posicion 
     public Reclamo eliminar(){
-    
+        //Verificar que este vacio el arreglo
         if(fin == -1){
             
             System.out.println("No hay elementos en la cola");
             return null;
     }
-        
+        //Retornar desde el inicio 
         return reclamos[++inicio];
 
 }
-    
+    //Mostrar arreglo con los elementos que contiene 
     public void mostrarReclamos(){
      if(tamaño()!=0){
         for( int i = inicio; i <= fin; i++ ){
@@ -75,13 +78,13 @@ public class Cola {
     
     
     }
-    
+    //Retornar la cantidad de elementos almacenados
     public int tamaño(){
     
         return (fin+1);
     
     }
-    
+    //Eliminar segun indices
     public void eliminar(int indice){
     
         if(tamaño() != 0){

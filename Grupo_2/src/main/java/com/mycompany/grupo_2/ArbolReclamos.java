@@ -10,17 +10,18 @@ import java.util.ArrayList;
  *
  * @author guill
  */
+    //Arbol AVL
 public class ArbolReclamos {
     private NodoReclamos raiz;
-
+    //Revisa la altura del arbol en caso de ser 0 retorna un null 
     private int altura(NodoReclamos nodo){
         return (nodo == null)? 0 : nodo.getAlturanodo();
     }
-
+    //Calcula el balanceo del arbol 
     private int balance(NodoReclamos nodo){
         return (nodo == null)? 0 : altura(nodo.getIzquierdo())-altura(nodo.getDerecho());
     }
-
+    //Actualizar Altura tomando la altura de los hijos 
     private void actualizarAltura(NodoReclamos nodo){
         if(nodo!=null){
             int altIzquierdo = (nodo.getIzquierdo() == null) ? 0 : nodo.getIzquierdo().getAlturanodo();
@@ -32,6 +33,7 @@ public class ArbolReclamos {
             }
         }
     }
+    //Rotar hacia la derecho , se usa cuando el arbol izquierdo esta desbalanceado
 
     private NodoReclamos rotarDerecha(NodoReclamos y){
         NodoReclamos x = y.getIzquierdo();
@@ -45,7 +47,7 @@ public class ArbolReclamos {
 
         return x;
     }
-
+    //Rotar hacia la izquierda , se usa cuando el arbol derecho esta desbalanceado
     private NodoReclamos rotarIzquierdo(NodoReclamos x){
         NodoReclamos y = x.getDerecho();
         NodoReclamos T2 = y.getIzquierdo();
@@ -58,16 +60,18 @@ public class ArbolReclamos {
 
         return y;
     }
-
+    
+    //Metodo publico de insertar 
     public void insertar(Reclamo nuevoReclamo){
         raiz = insertarRec(raiz , nuevoReclamo);
     }
-
+    //Insertar de manera Recursiva 
     private NodoReclamos insertarRec(NodoReclamos nodo, Reclamo nuevoReclamo){
+        //Caso base en caso de estar vacio 
         if(nodo==null){
             return new NodoReclamos(nuevoReclamo);
         }
-        
+        //Insertar por nivel de prioridad 
         if(nuevoReclamo.getNivelPrioridad() < nodo.getReclamo().getNivelPrioridad()){
             nodo.setIzquierdo(insertarRec(nodo.getIzquierdo(), nuevoReclamo));
         }else if(nuevoReclamo.getNivelPrioridad() > nodo.getReclamo().getNivelPrioridad()){
@@ -100,7 +104,7 @@ public class ArbolReclamos {
 
         return nodo;
     }
-    
+    //Comparar de manera dd/mm/aaaa 
     private boolean compararFechas(String fecha1, String fecha2) {
         
         String aux1 = "";
@@ -130,7 +134,7 @@ public class ArbolReclamos {
             }
                     
         }
-        
+        //Comparar por fechas 
         for(int i = fechas.size()-1; i >= 0; i-=2){
         
             if(fechas.get(i) > fechas.get(i-1)){
@@ -143,7 +147,7 @@ public class ArbolReclamos {
         return false;
              
     }
-    
+    //Mostrar en InOrden
     public void mostrarInOrden() {
         if(raiz == null){
             System.out.println("No existen reclamos en el árbol.");
@@ -151,9 +155,8 @@ public class ArbolReclamos {
             inOrden(raiz);
         }
     }     
-        
+        //Recorrer en InOrden de manera recursiva 
     private void inOrden(NodoReclamos nodo) {
-        // TODO: recorrido recursivo
         if(nodo != null){
             inOrden(nodo.getIzquierdo());
             System.out.println(nodo.getReclamo()); 

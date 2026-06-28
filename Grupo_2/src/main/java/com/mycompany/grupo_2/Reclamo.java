@@ -92,7 +92,7 @@ public class Reclamo {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-
+    //convertir de objetos a cadena 
     @Override
     public String toString() {
         return  "Rut: " + rut +"|"
