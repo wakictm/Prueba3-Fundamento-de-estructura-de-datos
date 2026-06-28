@@ -63,49 +63,59 @@ public class ArbolReclamos {
         raiz = insertarRec(raiz , nuevoReclamo);
     }
 
-    private NodoReclamos insertarRec(NodoReclamos nodo, Reclamo nuevoReclamo){
+private NodoReclamos insertarRec(NodoReclamos nodo, Reclamo nuevoReclamo){
     if(nodo == null){
         return new NodoReclamos(nuevoReclamo);
     }
     
- 
-    String fechaNueva = nuevoReclamo.getFechaLimite();
-    String fechaNodo = nodo.getReclamo().getFechaLimite();
+    int prioridadNueva = nuevoReclamo.getNivelPrioridad();
+    int prioridadNodo = nodo.getReclamo().getNivelPrioridad();
     
-
-    if (!compararFechas(fechaNueva, fechaNodo)) {
+   
+    if (prioridadNueva < prioridadNodo) {
+       
+        nodo.setDerecho(insertarRec(nodo.getDerecho(), nuevoReclamo));
+    } 
+    else if (prioridadNueva > prioridadNodo) {
+       
         nodo.setIzquierdo(insertarRec(nodo.getIzquierdo(), nuevoReclamo));
     } 
-
     else {
-        nodo.setDerecho(insertarRec(nodo.getDerecho(), nuevoReclamo));
+        
+        String fechaNueva = nuevoReclamo.getFechaLimite();
+        String fechaNodo = nodo.getReclamo().getFechaLimite();
+        
+        
+        if (compararFechas(fechaNueva, fechaNodo)) {
+            nodo.setIzquierdo(insertarRec(nodo.getIzquierdo(), nuevoReclamo));
+        } else {
+           
+            nodo.setDerecho(insertarRec(nodo.getDerecho(), nuevoReclamo));
+        }
     }
     
 
     actualizarAltura(nodo);
-    
     int balance = balance(nodo);
     
-
-    if (balance > 1 && !compararFechas(fechaNueva, nodo.getIzquierdo().getReclamo().getFechaLimite())) {
-        return rotarDerecha(nodo);
+    if (balance > 1) {
+        
+        if (balance(nodo.getIzquierdo()) >= 0) {
+            return rotarDerecha(nodo);
+        } else {
+            nodo.setIzquierdo(rotarIzquierdo(nodo.getIzquierdo()));
+            return rotarDerecha(nodo);
+        }
     }
 
- 
-    if (balance < -1 && compararFechas(fechaNueva, nodo.getDerecho().getReclamo().getFechaLimite())) {
-        return rotarIzquierdo(nodo);
-    }
-
-
-    if (balance > 1 && compararFechas(fechaNueva, nodo.getIzquierdo().getReclamo().getFechaLimite())) {
-        nodo.setIzquierdo(rotarIzquierdo(nodo.getIzquierdo()));
-        return rotarDerecha(nodo);
-    }
-
-  
-    if (balance < -1 && !compararFechas(fechaNueva, nodo.getDerecho().getReclamo().getFechaLimite())) {
-        nodo.setDerecho(rotarDerecha(nodo.getDerecho()));
-        return rotarIzquierdo(nodo);
+    if (balance < -1) {
+       
+        if (balance(nodo.getDerecho()) <= 0) {
+            return rotarIzquierdo(nodo);
+        } else {
+            nodo.setDerecho(rotarDerecha(nodo.getDerecho()));
+            return rotarIzquierdo(nodo);
+        }
     }
 
     return nodo;
@@ -146,11 +156,11 @@ public class ArbolReclamos {
             if(fechas.get(i) > fechas.get(i-1)){
             
                 //System.out.println(fechas.get(i)+" - "+fechas.get(i-1));
-                return false;
+                return true;
             }
             else  if(fechas.get(i) < fechas.get(i-1)){
             
-                return true;
+                return false;
             }
             
         }

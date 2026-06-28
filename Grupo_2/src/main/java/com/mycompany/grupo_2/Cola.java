@@ -113,6 +113,7 @@ public class Cola {
                 reclamos[i] = reclamos[i+1];
             
             }
+            reclamos[fin] = null;
             fin--;
             System.out.println("Se elimino el reclamo correctamente");
             return;

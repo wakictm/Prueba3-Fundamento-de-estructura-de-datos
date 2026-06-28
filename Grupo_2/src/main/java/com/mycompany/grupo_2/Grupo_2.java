@@ -23,7 +23,7 @@ public class Grupo_2 {
         cola.agregar(new Reclamo(2, "Guille Donoso", "18/06/2026", "se echo fisíca", "05/05/2026", "no pase fisica", 3, "descripcion"));
         cola.agregar(new Reclamo(3, "Pepe Rodríguez", "18/06/2026", "Solo soy un dato", "14/02/2027", "quien soy yo", 3, "descripcion"));
         cola.agregar(new Reclamo(4, "Juan Carlos Bodoque", "18/06/2026", "Tulio no me presta plata", "28/06/2026", "Porque tulio es tan tacaño", 3, "descripcion"));
-        cola.agregar(new Reclamo(5, "Felipe Diaz", "18/06/2026", "Ser yo", "10/12/2026", "AAA", 3, "descripcion"));
+        cola.agregar(new Reclamo(5, "Felipe Diaz", "18/06/2026", "Ser yo", "10/12/2026", "AAA", 1, "descripcion"));
         
         for(Reclamo reclamo : cola.getReclamos()){
         
@@ -84,9 +84,12 @@ public class Grupo_2 {
                         System.out.print("Agrega una descripcion del reclamo: ");
                         String descripcion = sc.nextLine();
                         
+                        Reclamo nuevoReclamo = new Reclamo(rut, nombre
+                                , fechaIngreso, nombreReclamo, fechaLimite
+                                , tipoReclamo, nivelPrioridad, descripcion);
                         
-                        cola.agregar(new Reclamo(rut, nombre, fechaIngreso, nombreReclamo, fechaLimite, tipoReclamo, nivelPrioridad, descripcion));
-                        
+                        cola.agregar(nuevoReclamo);
+                        AR.insertar(nuevoReclamo);
                         
                         break;
                     
@@ -169,15 +172,17 @@ public class Grupo_2 {
                         else{
                             
                             System.out.println("No hay ningún reclamo registrado");
-                        
+                            break;
                         }
                         
+                        AR = actualizarArbol(AR, cola);
                         break;
                         
                     case 4:
                         int indice = buscarRut(cola, sc);
                         
                         cola.eliminar(indice);
+                        AR = actualizarArbol(AR, cola);
                         
                         break;
                         
@@ -190,7 +195,8 @@ public class Grupo_2 {
                             
                             System.out.println("1. Mostrar todos los reclamps pendientes"
                                     + "\n2. Mostrar todos los reclamos resueltos"
-                                    + "\n3. Mostrar reclamos por orden de prioridad");
+                                    + "\n3. Mostrar reclamos por orden de prioridad"
+                                    + "\n4. Mostrar segun arbol AVL");
                             System.out.print("Ingrese una opcion: ");
                             opc = sc.nextInt();
                             
@@ -232,13 +238,18 @@ public class Grupo_2 {
                                     
                                     break;
                                 
+                                case 4:
+                                    
+                                    AR.mostrarInOrden();
+                                    break;
+                                    
                                 default:
                                     System.out.println("\nOpcion invalida ingrese otra opcion\n");
                                     break;
                             
                             }
                         
-                        }while(opc < 1 || opc > 3);
+                        }while(opc < 1 || opc > 4);
                         
                         break;
             
@@ -290,6 +301,22 @@ public class Grupo_2 {
       
         }
      
+    }
+    
+    public static ArbolReclamos actualizarArbol(ArbolReclamos AR, Cola cola){
+    
+        AR = new ArbolReclamos();
+                        
+                        for (int i = 0; i < cola.tamaño(); i++) {
+                            Reclamo reclamoAct = cola.getReclamos()[i];
+
+
+                            if (reclamoAct != null) {
+                                AR.insertar(reclamoAct);
+                            }
+                        }
+                        
+      return AR;
     }
         
         
