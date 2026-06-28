@@ -10,7 +10,8 @@ package com.mycompany.grupo_2;
  */
 public class AlgoritmosOrdenamientos {
     
-    
+   /*Ambos sort ordenaran segun prioridad, aunque dajendo el mas urgente a la 
+     izquierda, o sea el número mayor a la izquierda y el menor a la derecha*/
    public Cola Bubblesort(Cola cola){
         
        if(cola.tamaño() == 0){
@@ -24,6 +25,8 @@ public class AlgoritmosOrdenamientos {
        for(int i = 0; i<cola.tamaño()-1;i++){
             
             for(int j = 0; j< cola.tamaño()-i-1;j++){
+            
+            //aca sucede para que eliga dejar los numeros mayores a la izquierda
             if(cola.getReclamos()[j].getNivelPrioridad() < cola.getReclamos()[j+1].getNivelPrioridad()){
             
                 temp = cola.getReclamos()[j];
@@ -69,7 +72,10 @@ private int partition(Reclamo arr[], int begin, int end) {
    
     int pivotPriority = arr[end].getNivelPrioridad();
     int i = (begin - 1);
-
+    
+    
+    //Solo porque le achunte se que aca debe modificarse para que deje los numeros
+    //mayores a la izquierda
     for (int j = begin; j < end; j++) {
      
         if (arr[j].getNivelPrioridad() >= pivotPriority) {
