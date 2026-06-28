@@ -202,5 +202,41 @@ private Reclamo buscarMasIzquierda(NodoReclamos nodo) {
    
     return nodo.getReclamo();
 }
+
+
+public Reclamo buscar(String fecha) {
+        // TODO: buscar categoría por nombre
+        
+       
+        
+        if(raiz == null){
+        
+            System.out.println("No existe ninguna categoria");
+        
+        }     
+        
+        NodoReclamos actual = raiz; 
+        
+        while(actual != null){
+            
+            if(actual.getReclamo().getFechaLimite().equals(fecha)){
+            
+                return actual.getReclamo();
+                
+            }
+            
+            if (compararFechas(fecha, actual.getReclamo().getFechaLimite())) {
+                actual = actual.getDerecho();
+            } 
+
+            else {
+                actual = actual.getIzquierdo();
+            }
+        
+        }
+        
+        System.out.println("No se encontro esa categoria");
+        return null;
+    }
     
 }

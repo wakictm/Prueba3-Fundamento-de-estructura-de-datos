@@ -9,7 +9,7 @@ package com.mycompany.grupo_2;
 
 public class Cola {
     
-
+    
     private Reclamo[] reclamos;
     private int fin, inicio;
     

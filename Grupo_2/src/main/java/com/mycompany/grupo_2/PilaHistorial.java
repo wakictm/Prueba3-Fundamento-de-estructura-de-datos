@@ -39,7 +39,7 @@ public void mostrarPila() {
         // TODO: mostrar todas las reservas desde el tope hacia el fondo
         if(reclamos.isEmpty()){
         
-            System.out.println("No hay reservas");
+            System.out.println("No hay reclamos modificados");
             return;
         
         }

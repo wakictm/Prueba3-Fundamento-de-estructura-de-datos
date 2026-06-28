@@ -53,10 +53,14 @@ public class Grupo_2 {
                             break;
                         }
                         else{
+                            
+                        /**Llama metodos para buscar el reclamo más urgente para agregarlo a la pila historial,
+                           y luego eliminarlo de la cola para finalmente actualizar el arbol AVL*/
+                            
                         Reclamo auxReclamo = AR.obtenerMasIzquierda();
                         auxReclamo.setEstadoReclamo(true);
                         System.out.println(auxReclamo);
-                        ph.apilar(auxReclamo);
+                        
                         int indiceReclamo = 0;
                         for(int i = 0; i<cola.tamaño();i++){
                         
@@ -67,7 +71,6 @@ public class Grupo_2 {
                             }
                         
                         }
-                        
                         
                         cola.eliminar(indiceReclamo);
                         
@@ -128,7 +131,7 @@ public class Grupo_2 {
                                 String nombreReclamoNuevo = sc.next();
                                 
                                 cola.getReclamos()[indice].setNombreReclamo(nombreReclamoNuevo);
-                                
+                                ph.apilar(cola.getReclamos()[indice]);
                                 break;
 
                             case 2:
@@ -139,7 +142,7 @@ public class Grupo_2 {
                                 String fechaLimiteNuevo = sc.next();
                                 
                                 cola.getReclamos()[indice].setFechaLimite(fechaLimiteNuevo);
-                                
+                                ph.apilar(cola.getReclamos()[indice]);
                                 
                                 break;
                             case 3:
@@ -150,7 +153,7 @@ public class Grupo_2 {
                                 String tipoReclamoNuevo = sc.next();
                                 
                                 cola.getReclamos()[indice].setTipoReclamo(tipoReclamoNuevo);
-                                
+                                ph.apilar(cola.getReclamos()[indice]);
                                 break;
                                 
                             case 4:
@@ -161,7 +164,7 @@ public class Grupo_2 {
                                 int nivelPrioridadNuevo = sc.nextInt();
                                 
                                 cola.getReclamos()[indice].setNivelPrioridad(nivelPrioridadNuevo);
-                                
+                                ph.apilar(cola.getReclamos()[indice]);
                                 break;
                                 
                             case 5:
@@ -172,7 +175,7 @@ public class Grupo_2 {
                                 String descripcionNuevo = sc.next();
                                 
                                 cola.getReclamos()[indice].setDescripcion(descripcionNuevo);
-                                
+                                ph.apilar(cola.getReclamos()[indice]);
                                 break;
                             
                             default:
@@ -209,7 +212,7 @@ public class Grupo_2 {
                         do{
                             
                             System.out.println("1. Mostrar todos los reclamps pendientes"
-                                    + "\n2. Mostrar todos los reclamos resueltos"
+                                    + "\n2. Mostrar todos los reclamos modificados"
                                     + "\n3. Mostrar reclamos por orden de prioridad"
                                     + "\n4. Mostrar segun arbol AVL");
                             System.out.print("Ingrese una opcion: ");
@@ -279,7 +282,7 @@ public class Grupo_2 {
 
     public static void mostrarMenu() {
         
-        System.out.println("1. Gestionar reclamos\n2. Agregar reclamos\n3. "
+        System.out.println("1. Actualizar el estado del reclamo(el más urgente)\n2. Agregar reclamos\n3. "
                 + "Modificar información de un reclamo existente\n4. Eliminar "
                 + "reclamos\n5. Consultar reclamos registrados");
         
