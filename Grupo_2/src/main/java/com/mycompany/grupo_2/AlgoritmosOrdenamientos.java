@@ -24,7 +24,7 @@ public class AlgoritmosOrdenamientos {
        for(int i = 0; i<cola.tamaño()-1;i++){
             
             for(int j = 0; j< cola.tamaño()-i-1;j++){
-            if(cola.getReclamos()[j].getNivelPrioridad() > cola.getReclamos()[j+1].getNivelPrioridad()){
+            if(cola.getReclamos()[j].getNivelPrioridad() < cola.getReclamos()[j+1].getNivelPrioridad()){
             
                 temp = cola.getReclamos()[j];
                 cola.getReclamos()[j] = cola.getReclamos()[j+1];
@@ -72,7 +72,7 @@ private int partition(Reclamo arr[], int begin, int end) {
 
     for (int j = begin; j < end; j++) {
      
-        if (arr[j].getNivelPrioridad() <= pivotPriority) {
+        if (arr[j].getNivelPrioridad() >= pivotPriority) {
             i++;
 
           

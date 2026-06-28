@@ -19,8 +19,8 @@ public class Grupo_2 {
         AlgoritmosOrdenamientos AO = new AlgoritmosOrdenamientos();
         
         
-        cola.agregar(new Reclamo(1,"Juan Fuentes", "12/06/2026", "nombre problema", "25/06/2026", "tipo de problema", 3, "descripcion"));
-        cola.agregar(new Reclamo(2,"Guille Donoso", "18/06/2026", "nombre problema", "30/06/2026", "LAS NOTAS", 1, "descripcion"));
+        cola.agregar(new Reclamo(1,"Juan Fuentes", "12/06/2026", "nombre problema", "25/06/2026", "tipo de problema", 1, "descripcion"));
+        cola.agregar(new Reclamo(2,"Guille Donoso", "18/06/2026", "nombre problema", "30/06/2026", "LAS NOTAS", 3, "descripcion"));
         
         Scanner sc = new Scanner(System.in);
         
@@ -36,6 +36,17 @@ public class Grupo_2 {
             switch(opcion){
                     
                     case 1:
+                        if(cola.tamaño() == 0){
+                            
+                            System.out.println("No existen reclamos pendientes");
+                 
+                        }
+                        
+                        else{
+                        
+                            
+                        
+                        }
                         
                         break;
                     case 2:
