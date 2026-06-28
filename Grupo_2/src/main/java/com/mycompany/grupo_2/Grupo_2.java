@@ -81,24 +81,28 @@ public class Grupo_2 {
                     case 2:
                         System.out.print("Ingrese el rut del ciudadano: ");
                         int rut = sc.nextInt();
+                        
                         System.out.print("Ingresa el nombre del ciudadano: ");
                         String nombre = sc.next();
                         
                         System.out.print("Ingresar fecha ingreso (DD/MM//AAAA): ");
                         String fechaIngreso = sc.next();
-                        
                         sc.nextLine();
+                        
                         System.out.print("Nombre del reclamo: ");
                         String nombreReclamo = sc.nextLine();
+                        
                         System.out.print("Ingrese la fecha limite (DD/MM//AAAA): ");
                         String fechaLimite = sc.next();
                         sc.nextLine();
+                        
                         System.out.print("Ingrese el tipo de reclamo: ");
                         String tipoReclamo = sc.nextLine();
                         
                         System.out.print("Ingrese el nivel de prioridad: ");
                         int nivelPrioridad = sc.nextInt();
                         sc.nextLine();
+                        
                         System.out.print("Agrega una descripcion del reclamo: ");
                         String descripcion = sc.nextLine();
                         
