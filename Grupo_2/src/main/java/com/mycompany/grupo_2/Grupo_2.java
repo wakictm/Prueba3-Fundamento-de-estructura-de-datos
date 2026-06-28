@@ -36,7 +36,7 @@ public class Grupo_2 {
         
         System.setOut(new java.io.PrintStream(System.out, true, java.nio.charset.StandardCharsets.UTF_8));
         
-        AR.mostrarInOrden();
+     
         do{
             
             mostrarMenu();
@@ -72,7 +72,7 @@ public class Grupo_2 {
                         
                         }
                         
-                        cola.eliminar(indiceReclamo);
+                        cola.getReclamos()[indiceReclamo].setEstadoReclamo(true);
                         
                         System.out.println("Reclamo terminado correctamente");
                         AR = actualizarArbol(AR,cola);
@@ -330,11 +330,14 @@ public class Grupo_2 {
         AR = new ArbolReclamos();
                         
                         for (int i = 0; i < cola.tamaño(); i++) {
-                            Reclamo reclamoAct = cola.getReclamos()[i];
-
-
-                            if (reclamoAct != null) {
-                                AR.insertar(reclamoAct);
+                            Reclamo reclamoActual = cola.getReclamos()[i];
+                            
+                            
+                            if (reclamoActual != null) {
+                                if(reclamoActual.isEstadoReclamo() == false){
+                                    AR.insertar(reclamoActual);
+                                
+                                }
                             }
                         }
                         
