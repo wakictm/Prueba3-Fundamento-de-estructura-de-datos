@@ -99,7 +99,7 @@ public class Cola {
         
         else{
         
-            System.out.println("La cola de registro esta vacia");
+            System.out.println("La cola de reclamos esta vacia");
         
         }
         
