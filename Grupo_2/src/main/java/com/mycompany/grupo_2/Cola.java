@@ -9,17 +9,46 @@ package com.mycompany.grupo_2;
 
 public class Cola {
     
-
+    
     private Reclamo[] reclamos;
     private int fin, inicio;
+    
+
+    public Reclamo[] getReclamos() {
+        return reclamos;
+    }
+    
+
  
     
     public Cola(){
     
-        reclamos = new Reclamo[0];
-        fin = -1;
-        inicio = 0;
+        this.reclamos = new Reclamo[0];
+        this.fin = -1;
+        this.inicio = 0;
     }
+    
+    public Cola(Cola cola){
+    
+        if (cola.getReclamos() != null) {
+        this.reclamos = cola.getReclamos().clone(); 
+    }
+    
+
+        this.fin = cola.getFin();
+        this.inicio = cola.getInicio();
+    
+    }
+
+    public int getFin() {
+        return fin;
+    }
+
+    public int getInicio() {
+        return inicio;
+    }
+
+    
     
     public void agregar(Reclamo reclamo){
     
@@ -53,16 +82,56 @@ public class Cola {
 }
     
     public void mostrarReclamos(){
-    
+     if(tamaño()!=0){
         for( int i = inicio; i <= fin; i++ ){
         
             System.out.println((i+1)+". "+reclamos[i]);
         }
         System.out.println("");
     }
+     else{
+     
+         System.out.println("No hay registros para mostrar");
+     
+     }
+    
+    
+    }
+    
+    public int tamaño(){
+    
+        return (fin+1);
+    
+    }
+    
+    public void eliminar(int indice){
+    
+        if(tamaño() != 0){
+        
+            for(int i = indice; i < tamaño()-1; i++){
+            
+                reclamos[i] = reclamos[i+1];
+            
+            }
+            reclamos[fin] = null;
+            fin--;
+            System.out.println("Se elimino el reclamo correctamente");
+            return;
+            
+        }
+        
+        else{
+        
+            System.out.println("La cola de reclamos esta vacia");
+        
+        }
+        
+    
+    
+    }
 
 
-   }
+}
 
 
     

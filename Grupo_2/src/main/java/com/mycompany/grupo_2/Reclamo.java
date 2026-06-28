@@ -12,15 +12,15 @@ public class Reclamo {
     
     private int rut;
     private String nombreCiudadano;
-    private int fechaIngreso;
+    private String fechaIngreso;
     private String nombreReclamo;
-    private int fechaLimite;
+    private String fechaLimite;
     private String tipoReclamo;
     private boolean estadoReclamo;
     private int nivelPrioridad;
     private String descripcion;
 
-    public Reclamo(int rut, String nombreCiudadano, int fechaIngreso, String nombreReclamo, int fechaLimite, String tipoReclamo, int nivelPrioridad, String descripcion) {
+    public Reclamo(int rut, String nombreCiudadano, String fechaIngreso, String nombreReclamo, String fechaLimite, String tipoReclamo, int nivelPrioridad, String descripcion) {
         this.rut = rut;
         this.nombreCiudadano = nombreCiudadano;
         this.fechaIngreso = fechaIngreso;
@@ -40,7 +40,7 @@ public class Reclamo {
         return nombreCiudadano;
     }
 
-    public int getFechaIngreso() {
+    public String getFechaIngreso() {
         return fechaIngreso;
     }
 
@@ -48,7 +48,7 @@ public class Reclamo {
         return nombreReclamo;
     }
 
-    public int getFechaLimite() {
+    public String getFechaLimite() {
         return fechaLimite;
     }
 
@@ -68,23 +68,12 @@ public class Reclamo {
         return descripcion;
     }
 
-    public void setRut(int rut) {
-        this.rut = rut;
-    }
-
-    public void setNombreCiudadano(String nombreCiudadano) {
-        this.nombreCiudadano = nombreCiudadano;
-    }
-
-    public void setFechaIngreso(int fechaIngreso) {
-        this.fechaIngreso = fechaIngreso;
-    }
 
     public void setNombreReclamo(String nombreReclamo) {
         this.nombreReclamo = nombreReclamo;
     }
 
-    public void setFechaLimite(int fechaLimite) {
+    public void setFechaLimite(String fechaLimite) {
         this.fechaLimite = fechaLimite;
     }
 
@@ -106,20 +95,32 @@ public class Reclamo {
 
     @Override
     public String toString() {
+        
+        if(estadoReclamo == false){
+        
         return  "Rut: " + rut +"|"
                 + "Nombre del Ciudadano: " + nombreCiudadano +"|"
                 + "Fecha de Ingreso: " + fechaIngreso +"|"+
                 "Nombre del Reclamo: " + nombreReclamo +"|"+
                 "Fecha Limite: " + fechaLimite +"|"+
                 "Tipo Reclamo: " + tipoReclamo +"|"+
-                "Estado Reclamo: " + estadoReclamo+"|"
+                "Estado Reclamo: " + "Pendiente"+"|"
                 + "Nivel de Prioridad: " + nivelPrioridad +"|"+
                 "Descripcion: " + descripcion;
+        }
+        else{
+        
+                return  "Rut: " + rut +"|"
+                + "Nombre del Ciudadano: " + nombreCiudadano +"|"
+                + "Fecha de Ingreso: " + fechaIngreso +"|"+
+                "Nombre del Reclamo: " + nombreReclamo +"|"+
+                "Fecha Limite: " + fechaLimite +"|"+
+                "Tipo Reclamo: " + tipoReclamo +"|"+
+                "Estado Reclamo: " + "Resuelto"+"|"
+                + "Nivel de Prioridad: " + nivelPrioridad +"|"+
+                "Descripcion: " + descripcion;
+        
+        }
     }
-    
-
-   
-    
-    
-    
+     
 }
