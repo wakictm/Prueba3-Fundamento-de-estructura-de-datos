@@ -17,15 +17,26 @@ public class Grupo_2 {
         Cola cola = new Cola();
         
         AlgoritmosOrdenamientos AO = new AlgoritmosOrdenamientos();
+        ArbolReclamos AR = new ArbolReclamos();
+        
+        cola.agregar(new Reclamo(1, "Juan Fuentes", "12/06/2026", "Vecinos ruidosos", "15/12/2026", "Vecinos", 3, "descripcion"));
+        cola.agregar(new Reclamo(2, "Guille Donoso", "18/06/2026", "se echo fisíca", "05/05/2026", "no pase fisica", 3, "descripcion"));
+        cola.agregar(new Reclamo(3, "Pepe Rodríguez", "18/06/2026", "Solo soy un dato", "14/02/2027", "quien soy yo", 3, "descripcion"));
+        cola.agregar(new Reclamo(4, "Juan Carlos Bodoque", "18/06/2026", "Tulio no me presta plata", "28/06/2026", "Porque tulio es tan tacaño", 3, "descripcion"));
+        cola.agregar(new Reclamo(5, "Felipe Diaz", "18/06/2026", "Ser yo", "10/12/2026", "AAA", 3, "descripcion"));
+        
+        for(Reclamo reclamo : cola.getReclamos()){
+        
+            AR.insertar(reclamo);
+        }
         
         
-        cola.agregar(new Reclamo(1,"Juan Fuentes", "12/06/2026", "nombre problema", "25/06/2026", "tipo de problema", 1, "descripcion"));
-        cola.agregar(new Reclamo(2,"Guille Donoso", "18/06/2026", "nombre problema", "30/06/2026", "LAS NOTAS", 3, "descripcion"));
         
         Scanner sc = new Scanner(System.in);
         
         System.setOut(new java.io.PrintStream(System.out, true, java.nio.charset.StandardCharsets.UTF_8));
         
+        AR.mostrarInOrden();
         do{
             
             mostrarMenu();
