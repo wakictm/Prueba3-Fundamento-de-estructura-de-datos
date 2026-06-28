@@ -17,7 +17,7 @@ public class Grupo_2 {
         Cola cola = new Cola();
         
         cola.agregar(new Reclamo(1,"Juan Fuentes", "12/06/2026", "nombre problema", "25/06/2026", "tipo de problema", 3, "descripcion"));
-        cola.agregar(new Reclamo(2,"Guille", "18/06/2026", "nombre problema", "30/06/2026", "LAS NOTAS", 3, "descripcion"));
+        cola.agregar(new Reclamo(2,"Guille Donoso", "18/06/2026", "nombre problema", "30/06/2026", "LAS NOTAS", 3, "descripcion"));
         
         Scanner sc = new Scanner(System.in);
         
@@ -161,11 +161,13 @@ public class Grupo_2 {
                         
                         int opc = 0;
                         
-                        while(opc > 0 && opc < 4){
-                        
+                        do{
+                            
                             System.out.println("1. Mostrar todos los reclamps pendientes"
                                     + "\n2. Mostrar todos los reclamos resueltos"
                                     + "\n3. Mostrar reclamos por orden de prioridad");
+                            System.out.print("Ingrese una opcion: ");
+                            opc = sc.nextInt();
                             
                             switch(opc){
                             
@@ -181,11 +183,14 @@ public class Grupo_2 {
                                     
                                     
                                     break;
-                            
+                                
+                                default:
+                                    System.out.println("\nOpcion invalida ingrese otra opcion\n");
+                                    break;
                             
                             }
                         
-                        }
+                        }while(opc < 1 || opc > 3);
                         
                         break;
             
