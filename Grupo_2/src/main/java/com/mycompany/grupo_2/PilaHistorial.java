@@ -7,31 +7,48 @@ package com.mycompany.grupo_2;
 import java.util.LinkedList;
 
 public class PilaHistorial {
-    private LinkedList<String> elementos;
+    private LinkedList<Reclamo> reclamos;
     
     public PilaHistorial(){
-        elementos = new LinkedList<>();
+        reclamos = new LinkedList<>();
     }
     
-    public void apilar(String cambio){
-        elementos.addFirst(cambio);        
+    public void apilar(Reclamo cambio){
+        reclamos.addFirst(cambio);        
     }
     
-    public String desapilar(){
+    public Reclamo desapilar(){
         if (Vacia()){
             throw new IllegalStateException("Historial vacio");        
         }
-        return elementos.removeFirst();
+        return reclamos.removeFirst();
     }
 
-public String cima(){
+public Reclamo cima(){
     if(Vacia()){
         throw new IllegalStateException("Historial vacio");        
     }
-    return elementos.getFirst();   
+    return reclamos.getFirst();   
 }
 
 public boolean Vacia(){
-    return elementos.isEmpty();
+    return reclamos.isEmpty();
 }
+
+public void mostrarPila() {
+        // TODO: mostrar todas las reservas desde el tope hacia el fondo
+        if(reclamos.isEmpty()){
+        
+            System.out.println("No hay reservas");
+            return;
+        
+        }
+        
+        for( int i = reclamos.size()-1; i >= 0; i--){
+        
+            System.out.println(reclamos.get(i));
+        
+        }
+        
+    }
 }

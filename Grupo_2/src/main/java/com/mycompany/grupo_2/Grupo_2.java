@@ -15,7 +15,7 @@ public class Grupo_2 {
         int opcion = 0;
         
         Cola cola = new Cola();
-        
+        PilaHistorial ph = new PilaHistorial();
         AlgoritmosOrdenamientos AO = new AlgoritmosOrdenamientos();
         ArbolReclamos AR = new ArbolReclamos();
         
@@ -47,18 +47,33 @@ public class Grupo_2 {
             switch(opcion){
                     
                     case 1:
-                        if(cola.tamaño() == 0){
+                        if(cola.tamaño()==0){
                             
-                            System.out.println("No existen reclamos pendientes");
-                 
+                            System.out.println("No hay reclamos pendientes");
+                            break;
                         }
-                        
                         else{
+                        Reclamo auxReclamo = AR.obtenerMasIzquierda();
+                        auxReclamo.setEstadoReclamo(true);
+                        System.out.println(auxReclamo);
+                        ph.apilar(auxReclamo);
+                        int indiceReclamo = 0;
+                        for(int i = 0; i<cola.tamaño();i++){
                         
+                            if(auxReclamo.getRut()==cola.getReclamos()[i].getRut()){
                             
+                                indiceReclamo = i;
+                            
+                            }
                         
                         }
                         
+                        
+                        cola.eliminar(indiceReclamo);
+                        
+                        System.out.println("Reclamo terminado correctamente");
+                        AR = actualizarArbol(AR,cola);
+                        }
                         break;
                     case 2:
                         System.out.print("Ingrese el rut del ciudadano: ");
@@ -207,7 +222,7 @@ public class Grupo_2 {
                                     break;
                                 
                                 case 2:
-                                    
+                                    ph.mostrarPila();
                                     break;
                                     
                                 case 3:
@@ -316,7 +331,7 @@ public class Grupo_2 {
                             }
                         }
                         
-      return AR;
+        return AR;
     }
         
         

@@ -177,12 +177,30 @@ private NodoReclamos insertarRec(NodoReclamos nodo, Reclamo nuevoReclamo){
     }     
         
     private void inOrden(NodoReclamos nodo) {
-        // TODO: recorrido recursivo
+        //recorrido recursivo
         if(nodo != null){
             inOrden(nodo.getIzquierdo());
             System.out.println(nodo.getReclamo()); 
             inOrden(nodo.getDerecho());
         }
     }
+    
+    public Reclamo obtenerMasIzquierda() {
+    if (raiz == null) {
+        System.out.println("El árbol está vacío.");
+        return null;
+    }
+    return buscarMasIzquierda(raiz);
+}
+
+
+private Reclamo buscarMasIzquierda(NodoReclamos nodo) {
+    
+    while (nodo.getIzquierdo() != null) {
+        nodo = nodo.getIzquierdo();
+    }
+   
+    return nodo.getReclamo();
+}
     
 }
