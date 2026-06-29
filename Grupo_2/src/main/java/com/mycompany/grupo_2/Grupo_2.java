@@ -350,8 +350,8 @@ public class Grupo_2 {
         podemos modificar de un reclamo*/
         while(true){
             if(cola.tamaño() == 0){
-                System.out.println("No hay reclamos registrados");
-                break;}
+                break;
+            }
             System.out.println("Ingrese el rut del reclamo a buscar");
             int rutBuscar = sc.nextInt();
         
@@ -369,7 +369,7 @@ public class Grupo_2 {
             System.out.println("No se encontro el reclamo intente con otro rut");
       
         }
-     
+     return -1;
     }
     
     public static ArbolReclamos actualizarArbol(ArbolReclamos AR, Cola cola){
