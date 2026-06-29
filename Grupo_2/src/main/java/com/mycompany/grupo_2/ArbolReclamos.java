@@ -204,7 +204,7 @@ private Reclamo buscarMasIzquierda(NodoReclamos nodo) {
 }
 
 
-public Reclamo buscar(String fecha) {
+public Reclamo buscar(String fecha, int rut) {
         // TODO: buscar categoría por nombre
         
        
@@ -219,23 +219,24 @@ public Reclamo buscar(String fecha) {
         
         while(actual != null){
             
-            if(actual.getReclamo().getFechaLimite().equals(fecha)){
-            
+            if(actual.getReclamo().getFechaLimite().equals(fecha) && rut == actual.getReclamo().getRut()){
+                System.out.println("Se encontro el reclamo");
+                System.out.println(actual.getReclamo());
                 return actual.getReclamo();
                 
             }
             
             if (compararFechas(fecha, actual.getReclamo().getFechaLimite())) {
-                actual = actual.getDerecho();
+                actual = actual.getIzquierdo();
             } 
 
             else {
-                actual = actual.getIzquierdo();
+                actual = actual.getDerecho();
             }
         
         }
         
-        System.out.println("No se encontro esa categoria");
+        System.out.println("No se encontro el reclamo");
         return null;
     }
     

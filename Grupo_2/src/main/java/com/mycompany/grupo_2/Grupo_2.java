@@ -229,7 +229,8 @@ public class Grupo_2 {
                             System.out.println("1. Mostrar todos los reclamps pendientes"
                                     + "\n2. Mostrar todos los reclamos modificados"
                                     + "\n3. Mostrar reclamos por orden de prioridad"
-                                    + "\n4. Mostrar segun arbol AVL");
+                                    + "\n4. Mostrar segun arbol AVL"
+                                    + "\n5. Buscar reclamo por especifico(con rut y fecha termino)");
                             System.out.print("Ingrese una opcion: ");
                             opc = sc.nextInt();
                             
@@ -275,6 +276,17 @@ public class Grupo_2 {
                                     
                                     AR.mostrarInOrden();
                                     break;
+                                case 5:
+                                    System.out.println("Ingresa la fecha que termino del reclamo(DD/MM/AAAA): ");
+                                    String fechaLimiteaux = sc.next();
+                                    System.out.println("Ingresa el rut del reclamo a buscar: ");
+                                    int rutaux = sc.nextInt();
+                                    
+                               
+                                    
+                                    //Se llama metodo de busqueda binaria utilizando la fecha termino y el rut
+                                    AR.buscar(fechaLimiteaux, rutaux);
+                                    break;
                                     
                                 default:
                                     System.out.println("\nOpcion invalida ingrese otra opcion\n");
@@ -282,7 +294,7 @@ public class Grupo_2 {
                             
                             }
                         
-                        }while(opc < 1 || opc > 4);
+                        }while(opc < 1 || opc > 5);
                         
                         break;
             
