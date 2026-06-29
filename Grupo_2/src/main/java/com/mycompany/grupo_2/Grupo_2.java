@@ -349,7 +349,7 @@ public class Grupo_2 {
         /*Busqueda secuencial segun rut para las mil cosas que 
         podemos modificar de un reclamo*/
         while(true){
-            
+            if(cola.tamaño() == 0){System.out.println("No hay reclamos registrados");}
             System.out.println("Ingrese el rut del reclamo a buscar");
             int rutBuscar = sc.nextInt();
         
