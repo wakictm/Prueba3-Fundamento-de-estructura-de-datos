@@ -336,7 +336,7 @@ public class Grupo_2 {
         
         System.out.println("1. Actualizar el estado del reclamo(el más urgente)\n2. Agregar reclamos\n3. "
                 + "Modificar información de un reclamo existente\n4. Eliminar "
-                + "reclamos\n5. Consultar reclamos registrados");
+                + "reclamos\n5. Consultar reclamos registrados\n6. Salir");
         
     }
     
