@@ -298,6 +298,10 @@ public class Grupo_2 {
                                     AR.mostrarInOrden();
                                     break;
                                 case 5:
+                                    if(cola.tamaño()==0){
+                                        System.out.println("No hay reclamos registrados");
+                                        break;
+                                    }
                                     System.out.println("Ingresa la fecha que termino del reclamo(DD/MM/AAAA): ");
                                     String fechaLimiteaux = sc.next();
                                     System.out.println("Ingresa el rut del reclamo a buscar: ");
