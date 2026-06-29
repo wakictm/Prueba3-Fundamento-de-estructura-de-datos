@@ -247,7 +247,7 @@ public class Grupo_2 {
                         
                         do{
                             
-                            System.out.println("1. Mostrar todos los reclamos pendientes"
+                            System.out.println("1. Mostrar todos los reclamos registrados"
                                     + "\n2. Mostrar todos los reclamos modificados"
                                     + "\n3. Mostrar reclamos por orden de prioridad"
                                     + "\n4. Mostrar segun arbol AVL"
