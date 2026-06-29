@@ -168,6 +168,7 @@ private NodoReclamos insertarRec(NodoReclamos nodo, Reclamo nuevoReclamo){
              
     }
     
+    //Recorrido recursivo hasta que no existan mas reclamos que recorrer
     public void mostrarInOrden() {
         if(raiz == null){
             System.out.println("No existen reclamos en el árbol.");
@@ -177,14 +178,16 @@ private NodoReclamos insertarRec(NodoReclamos nodo, Reclamo nuevoReclamo){
     }     
         
     private void inOrden(NodoReclamos nodo) {
-        //recorrido recursivo
+        //recorrido recursivo de manera IRD(izquierda, raiz, derecha)
         if(nodo != null){
             inOrden(nodo.getIzquierdo());
             System.out.println(nodo.getReclamo()); 
             inOrden(nodo.getDerecho());
         }
     }
-    
+    /*Ordenamos de tal manera que el mas de la izquierda es prioridad por
+    /fecha limite y nivel prioridad por lo tanto obteniendo este nodo sabemos 
+    que reclamo es el mas urgente con recursividad*/
     public Reclamo obtenerMasIzquierda() {
     if (raiz == null) {
         System.out.println("El árbol está vacío.");
@@ -193,7 +196,8 @@ private NodoReclamos insertarRec(NodoReclamos nodo, Reclamo nuevoReclamo){
     return buscarMasIzquierda(raiz);
 }
 
-
+/*Ira lo mas posible a la izquierda hasta que el siguiente 
+    sea un null, o sea llegamos al reclamo mas urgente*/
 private Reclamo buscarMasIzquierda(NodoReclamos nodo) {
     
     while (nodo.getIzquierdo() != null) {
@@ -205,13 +209,15 @@ private Reclamo buscarMasIzquierda(NodoReclamos nodo) {
 
 
 public Reclamo buscar(String fecha, int rut) {
-        // TODO: buscar categoría por nombre
+        /* TODO: Buscar reclamo con busqueda binaria 
+        utilizando rut y la fecha limite para encontrarla
+        ya que solo con el rut no basta, porque nuestro arbol
+        ordenada por fecha mas cercana.*/
         
-       
-        
+        //en caso se que no exista ningun reclamo
         if(raiz == null){
         
-            System.out.println("No existe ninguna categoria");
+            System.out.println("No existe ningun reclamo");
         
         }     
         
@@ -219,6 +225,7 @@ public Reclamo buscar(String fecha, int rut) {
         
         while(actual != null){
             
+            //Si la fecha limite y rut son iguales al nodo actual devolveremos la variable abstracta
             if(actual.getReclamo().getFechaLimite().equals(fecha) && rut == actual.getReclamo().getRut()){
                 System.out.println("Se encontro el reclamo");
                 System.out.println(actual.getReclamo());

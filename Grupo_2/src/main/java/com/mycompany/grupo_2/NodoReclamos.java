@@ -10,17 +10,21 @@ package com.mycompany.grupo_2;
  */
 public class NodoReclamos {
     
+    //Atrivutos del nodo reclamo
     private Reclamo reclamo;
     private NodoReclamos izquierdo;
     private NodoReclamos derecho;
     private int alturanodo;
-
+    
+    //Constructor del nodo reclamo
     public NodoReclamos(Reclamo reclamo) {
         this.reclamo = reclamo;
         this.izquierdo = null;
         this.derecho = null;
         this.alturanodo = 1;
     }
+    
+    //Getter y setter necesarios para moverse e insertar en el Arbol AVL
 
     public Reclamo getReclamo() {
         return reclamo;

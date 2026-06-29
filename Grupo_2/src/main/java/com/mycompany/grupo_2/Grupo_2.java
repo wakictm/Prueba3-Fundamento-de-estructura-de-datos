@@ -143,10 +143,13 @@ public class Grupo_2 {
                                 System.out.println("Ingrese el nuevo nombre del reclamo");
                                 String nombreReclamoNuevo = sc.next();
                                 
+                                Reclamo aux = cola.getReclamos()[indice];
+                                //se añade en la pila como historial de los reclamos sin modificar
+                                ph.apilar(new Reclamo(aux.getRut(),aux.getNombreCiudadano(),aux.getFechaIngreso()
+                                        ,aux.getNombreReclamo(),aux.getFechaLimite(),aux.getTipoReclamo()
+                                        ,aux.getNivelPrioridad(),aux.getDescripcion()));
                                 cola.getReclamos()[indice].setNombreReclamo(nombreReclamoNuevo);
                                 
-                                //se añade en la pila como historial de que fue modificada
-                                ph.apilar(cola.getReclamos()[indice]);
                                 break;
 
                             case 2:
@@ -155,9 +158,13 @@ public class Grupo_2 {
                                 
                                 System.out.println("Ingrese la nueva fecha límite (DD/MM//AAAA)");
                                 String fechaLimiteNuevo = sc.next();
-                                
+                                aux = cola.getReclamos()[indice];
+                                //se añade en la pila como historial de los reclamos sin modificar
+                                ph.apilar(new Reclamo(aux.getRut(),aux.getNombreCiudadano(),aux.getFechaIngreso()
+                                        ,aux.getNombreReclamo(),aux.getFechaLimite(),aux.getTipoReclamo()
+                                        ,aux.getNivelPrioridad(),aux.getDescripcion()));
                                 cola.getReclamos()[indice].setFechaLimite(fechaLimiteNuevo);
-                                ph.apilar(cola.getReclamos()[indice]);
+                                
                                 
                                 break;
                             case 3:
@@ -166,9 +173,14 @@ public class Grupo_2 {
                                 
                                 System.out.println("Ingrese el nueva tipo reclamo");
                                 String tipoReclamoNuevo = sc.next();
+                                aux = cola.getReclamos()[indice];
+                                //se añade en la pila como historial de los reclamos sin modificar
+                                ph.apilar(new Reclamo(aux.getRut(),aux.getNombreCiudadano(),aux.getFechaIngreso()
+                                        ,aux.getNombreReclamo(),aux.getFechaLimite(),aux.getTipoReclamo()
+                                        ,aux.getNivelPrioridad(),aux.getDescripcion()));
                                 
                                 cola.getReclamos()[indice].setTipoReclamo(tipoReclamoNuevo);
-                                ph.apilar(cola.getReclamos()[indice]);
+                                
                                 break;
                                 
                             case 4:
@@ -178,8 +190,13 @@ public class Grupo_2 {
                                 System.out.println("Ingrese el nuevo nivel prioridad");
                                 int nivelPrioridadNuevo = sc.nextInt();
                                 
+                                aux = cola.getReclamos()[indice];
+                                //se añade en la pila como historial de que fue modificada
+                                ph.apilar(new Reclamo(aux.getRut(),aux.getNombreCiudadano(),aux.getFechaIngreso()
+                                        ,aux.getNombreReclamo(),aux.getFechaLimite(),aux.getTipoReclamo()
+                                        ,aux.getNivelPrioridad(),aux.getDescripcion()));
                                 cola.getReclamos()[indice].setNivelPrioridad(nivelPrioridadNuevo);
-                                ph.apilar(cola.getReclamos()[indice]);
+                                
                                 break;
                                 
                             case 5:
@@ -188,9 +205,13 @@ public class Grupo_2 {
                                 
                                 System.out.println("Ingrese la nueva descripcion");
                                 String descripcionNuevo = sc.next();
-                                
+                                aux = cola.getReclamos()[indice];
+                                //se añade en la pila como historial de que fue modificada
+                                ph.apilar(new Reclamo(aux.getRut(),aux.getNombreCiudadano(),aux.getFechaIngreso()
+                                        ,aux.getNombreReclamo(),aux.getFechaLimite(),aux.getTipoReclamo()
+                                        ,aux.getNivelPrioridad(),aux.getDescripcion()));
                                 cola.getReclamos()[indice].setDescripcion(descripcionNuevo);
-                                ph.apilar(cola.getReclamos()[indice]);
+                                
                                 break;
                             
                             default:

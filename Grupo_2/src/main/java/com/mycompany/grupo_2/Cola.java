@@ -9,18 +9,19 @@ package com.mycompany.grupo_2;
 
 public class Cola {
     
-    
+    //Atributos de mi cola
     private Reclamo[] reclamos;
     private int fin, inicio;
     
-
+    //Para obtener la lista de reclamos cuando 
+    //necesitemos hacer busqueda secuencial
     public Reclamo[] getReclamos() {
         return reclamos;
     }
     
 
  
-    
+    //Constructor
     public Cola(){
     
         this.reclamos = new Reclamo[0];
@@ -28,6 +29,8 @@ public class Cola {
         this.inicio = 0;
     }
     
+    //Para clonar la cola al utilizar un algoritmo de 
+    //ordenamiento sin afectar a la original
     public Cola(Cola cola){
     
         if (cola.getReclamos() != null) {
@@ -49,7 +52,7 @@ public class Cola {
     }
 
     
-    
+    //Agregar en la cola de forma dinamica, o sea jamas llegaremos a un tope :)
     public void agregar(Reclamo reclamo){
     
        
@@ -68,7 +71,7 @@ public class Cola {
         reclamos[++fin] = reclamo;
         
     }
-    
+    //no se si lo utilizamos pero eliminara el ultimo reclamo de la cola
     public Reclamo eliminar(){
     
         if(fin == -1){
@@ -80,7 +83,7 @@ public class Cola {
         return reclamos[++inicio];
 
 }
-    
+    //Mostrara todos los reclamos de la cola utilizando un for each
     public void mostrarReclamos(){
      if(tamaño()!=0){
         for( int i = inicio; i <= fin; i++ ){
@@ -98,16 +101,22 @@ public class Cola {
     
     }
     
+    //Devolver el tamaño de la cola utilizando su atrivuto fin
     public int tamaño(){
     
         return (fin+1);
     
     }
     
+    //Eliminar un elemento en especifico de la cola utilizando el indice
+    
     public void eliminar(int indice){
     
         if(tamaño() != 0){
-        
+            
+            /*Empezaremos desde el indice donde se guardara el siguiente
+            en su posicion, o sea que correremos la cola un espacio a la
+            izquierda sin tomar en cuenta el reclamo que deseamos eliminar*/
             for(int i = indice; i < tamaño()-1; i++){
             
                 reclamos[i] = reclamos[i+1];

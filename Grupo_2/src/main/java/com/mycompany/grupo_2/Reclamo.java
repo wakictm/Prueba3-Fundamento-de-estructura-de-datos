@@ -9,7 +9,7 @@ package com.mycompany.grupo_2;
  * @author guill
  */
 public class Reclamo {
-    
+    //Atributos del reclamo
     private int rut;
     private String nombreCiudadano;
     private String fechaIngreso;
@@ -20,6 +20,8 @@ public class Reclamo {
     private int nivelPrioridad;
     private String descripcion;
 
+    //Constructor del reclamo
+    
     public Reclamo(int rut, String nombreCiudadano, String fechaIngreso, String nombreReclamo, String fechaLimite, String tipoReclamo, int nivelPrioridad, String descripcion) {
         this.rut = rut;
         this.nombreCiudadano = nombreCiudadano;
@@ -92,7 +94,9 @@ public class Reclamo {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-
+    
+    
+    //Segun el estado mostrara el toString si esta pendiete o termiando el reclamo
     @Override
     public String toString() {
         
