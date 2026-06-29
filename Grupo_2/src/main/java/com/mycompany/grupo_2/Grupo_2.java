@@ -322,9 +322,9 @@ public class Grupo_2 {
         
             }
         
-        }while(opcion != 8);
+        }while(opcion != 6);
         
-        
+        System.out.println("Saliendo...");
         
     }
 
